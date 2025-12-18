@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Card} from "reactstrap";
 
-function EndScreen() {
+
+function EndScreen({handleReset}) {
  
 
   useEffect(() => {
@@ -12,6 +11,7 @@ function EndScreen() {
   return (
     <div >
       <h1>End SCREEN</h1>
+      <button onClick={handleReset}>Reset</button>
     </div>
   );
 }

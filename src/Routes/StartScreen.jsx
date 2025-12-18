@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Card} from "reactstrap";
 
-function StartScreen() {
+
+function StartScreen({handleStart}) {
  
 
   useEffect(() => {
     
   }, []);
 
+
+
   return (
     <div >
       <h1>START SCREEN</h1>
+      <button onClick={handleStart}> Start Game </button>
     </div>
   );
 }
