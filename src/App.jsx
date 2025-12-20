@@ -10,8 +10,10 @@ import EndScreen from "./Routes/EndScreen";
 
 function App() {
   const [counter, setCounter] = useState(0);
+  const [ strength, setStrength] = useState(1)
   const [gameStage, setGameStage] = useState("start");
-  const [time, setTime] = useState(5);
+  const [maxTime,setMaxTime] = useState(5)
+  const [time, setTime] = useState(maxTime);
 
   useEffect(()=>{
     if (gameStage !=='play') return; // only runs when playing 
@@ -29,8 +31,8 @@ function App() {
   },[time,gameStage])
 
   const handleClick =()=>{
-    setCounter(counter+1)
-    setTime(5)
+    setCounter(counter+strength)
+    setTime(maxTime)
   }
 
   const handleStart =()=>{
@@ -38,7 +40,7 @@ function App() {
     setGameStage("play")
   }
   const handleReset =()=>{
-    setTime(5)
+    setTime(maxTime)
     setCounter(0)
     setGameStage("start")
   }
@@ -51,9 +53,9 @@ function App() {
       case'start':
         return < StartScreen handleStart={handleStart}   />
       case'play':
-        return <GameScreen handleClick ={handleClick} time={time}counter={counter} />
+        return <GameScreen handleClick ={handleClick} maxTime={maxTime}time={time} counter={counter} />
       case'end':
-        return <EndScreen handleReset = {handleReset}/>
+        return <EndScreen handleReset = {handleReset} counter={counter}/>
     }
   }
 

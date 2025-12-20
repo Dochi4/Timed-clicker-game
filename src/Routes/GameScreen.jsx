@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import SimpleSlider from "./SimpleSlider";
 
-function GameScreen({handleClick,time,counter}) {
+function GameScreen({handleClick,time,maxTime,counter}) {
 
  function Box() {
   return (
@@ -28,7 +29,7 @@ function Plane() {
   return (
     <div onClick={handleClick}>
       <h1>Game SCREEN</h1>  
-      <h2>Time:{time}</h2>
+      {time}<SimpleSlider maxtime={maxTime}time={time} />
       <h2>{counter}</h2>
         <Canvas style={{ width: "100vw", height: "100vh" }}>
         <ambientLight intensity={0.5} />
