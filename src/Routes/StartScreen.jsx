@@ -4,9 +4,9 @@ import React, { useContext, useEffect, useState } from "react";
 function StartScreen({handleStart}) {
  
 
-  useEffect(() => {
+  // useEffect(() => {
     
-  }, []);
+  // }, []);
 
 
 

@@ -10,41 +10,55 @@ import EndScreen from "./Routes/EndScreen";
 
 function App() {
   const [counter, setCounter] = useState(0);
-  const [ strength, setStrength] = useState(1)
   const [gameStage, setGameStage] = useState("start");
   const [maxTime,setMaxTime] = useState(5)
   const [time, setTime] = useState(maxTime);
 
+  const [wallet,setWallet] = useState(0);
+  const [strength, setStrength] = useState(1)
+  const convertionRate = 10
+
+
+  
+
   useEffect(()=>{
     if (gameStage !=='play') return; // only runs when playing 
-
-    if(time ===0){
-      endGame();
-      return
-    }
-  
     const timer = setInterval(()=>{
-      setTime((t)=> t-1)
+      setTime((t)=> { 
+      if(t ===0){
+        endGame();
+        return 0 
+    }
+      return t-1
+      })
     },1000)
 
     return() => clearInterval(timer)
   },[time,gameStage])
 
   const handleClick =()=>{
+    if (gameStage !=='play') return;
+
     setCounter(counter+strength)
     setTime(maxTime)
   }
+  
+  const walletConvertion = ()=>{
+    if( counter < convertionRate) return
+      const newCoins = Math.floor(counter/convertionRate)
+      setWallet(wallet + newCoins)
+    }
 
   const handleStart =()=>{
-    
+    setCounter(0)
+    setTime(maxTime)
     setGameStage("play")
   }
   const handleReset =()=>{
-    setTime(maxTime)
-    setCounter(0)
     setGameStage("start")
   }
   const endGame =()=>{
+    walletConvertion()
     setGameStage("end")
   }
 
@@ -55,7 +69,7 @@ function App() {
       case'play':
         return <GameScreen handleClick ={handleClick} maxTime={maxTime}time={time} counter={counter} />
       case'end':
-        return <EndScreen handleReset = {handleReset} counter={counter}/>
+        return <EndScreen handleReset = {handleReset} counter={counter} wallet={wallet} newCoins = {Math.floor(counter/convertionRate)}/>
     }
   }
 
