@@ -5,6 +5,7 @@ import "./Css/App.css"
 import GameScreen from "./Routes/GameScreen";
 import StartScreen from "./Routes/StartScreen";
 import EndScreen from "./Routes/EndScreen";
+import UpgradeBoard from "./Routes/UpgradeBoard";
 
 
 
@@ -17,9 +18,6 @@ function App() {
   const [wallet,setWallet] = useState(0);
   const [strength, setStrength] = useState(1)
   const convertionRate = 10
-
-
-  
 
   useEffect(()=>{
     if (gameStage !=='play') return; // only runs when playing 
@@ -57,6 +55,9 @@ function App() {
   const handleReset =()=>{
     setGameStage("start")
   }
+  const handleUpgrade =()=>{
+    setGameStage("upgrade")
+  }
   const endGame =()=>{
     walletConvertion()
     setGameStage("end")
@@ -65,11 +66,14 @@ function App() {
   function renderStages(){
     switch(gameStage){
       case'start':
-        return < StartScreen handleStart={handleStart}   />
+        return < StartScreen handleStart={handleStart} handleUpgrade={handleUpgrade} />
       case'play':
         return <GameScreen handleClick ={handleClick} maxTime={maxTime}time={time} counter={counter} />
       case'end':
-        return <EndScreen handleReset = {handleReset} counter={counter} wallet={wallet} newCoins = {Math.floor(counter/convertionRate)}/>
+        return <EndScreen handleReset = {handleReset} handleStart={handleStart} handleUpgrade={handleUpgrade} counter={counter} wallet={wallet} newCoins = {Math.floor(counter/convertionRate)}/>
+      case'upgrade':
+        return <UpgradeBoard handleReset={handleReset} handleStart={handleStart} wallet={wallet} setWallet={setWallet} strength={strength} setStrength={setStrength} setMaxTime={setMaxTime} maxTime={maxTime}/>
+    
     }
   }
 

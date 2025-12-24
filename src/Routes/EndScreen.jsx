@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 
-function EndScreen({handleReset,counter,wallet,newCoins}) {
+function EndScreen({handleReset,handleStart,handleUpgrade,counter,wallet,newCoins}) {
  
 
   return (
@@ -10,7 +10,9 @@ function EndScreen({handleReset,counter,wallet,newCoins}) {
       <h2>You Swung {counter} Times </h2>
       <h2>You earned {newCoins} Coins </h2>
       <h2>You current wallet is {wallet} Coins</h2>
-      <button onClick={handleReset}>Reset</button>
+      <button onClick={handleStart}>Play Again</button>
+      <button onClick={handleReset}>Return to Start Screen</button>
+      <button onClick={handleUpgrade}>Upgrade</button>
     </div>
   );
 }
