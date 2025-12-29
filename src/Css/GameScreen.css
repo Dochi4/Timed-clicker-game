@@ -1,0 +1,12 @@
+#canvas{
+    height: 100svh;
+    width: 100svw;
+    display: grid
+}
+
+#infoPanel{
+    position:absolute;
+    width: 100%;
+    top:0;
+    z-index: 1;
+}

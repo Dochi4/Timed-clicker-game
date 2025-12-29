@@ -12,7 +12,7 @@ import UpgradeBoard from "./Routes/UpgradeBoard";
 function App() {
   const [counter, setCounter] = useState(0);
   const [gameStage, setGameStage] = useState("start");
-  const [maxTime,setMaxTime] = useState(5)
+  const [maxTime,setMaxTime] = useState(100)
   const [time, setTime] = useState(maxTime);
 
   const [wallet,setWallet] = useState(0);
@@ -78,7 +78,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App">
     {renderStages()}
     </div>
   );
