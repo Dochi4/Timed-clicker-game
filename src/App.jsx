@@ -6,6 +6,7 @@ import GameScreen from "./Routes/GameScreen";
 import StartScreen from "./Routes/StartScreen";
 import EndScreen from "./Routes/EndScreen";
 import UpgradeBoard from "./Routes/UpgradeBoard";
+import World from "./Routes/Canvas/World";
 
 
 
@@ -79,9 +80,12 @@ function App() {
 
   return (
     <div className="App">
+      <World gameStage={gameStage} handleClick={handleClick} />
+    
     {renderStages()}
     </div>
   );
 }
 
 export default App;
+
