@@ -75,3 +75,22 @@ button:active {
     0 4px 0 var(--shadow-bt-color),
     0 -4px 0 var(--shadow-bt-color);
 }
+
+
+.canvas, .ui-panel{
+    position: absolute;
+    
+}
+
+
+
+.canvas{
+    height: 100svh;
+    width: 100svw;
+    display: grid;
+    z-index: 1;
+}
+
+.ui-panel{
+    z-index: 2;
+}

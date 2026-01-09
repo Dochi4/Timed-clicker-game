@@ -80,9 +80,8 @@ function App() {
 
   return (
     <div className="App">
-      <World gameStage={gameStage} handleClick={handleClick} />
-    
-    {renderStages()}
+    <div className='canvas'><World gameStage={gameStage} handleClick={handleClick} /></div>
+    <div className = "ui-panel">{renderStages()}</div>
     </div>
   );
 }

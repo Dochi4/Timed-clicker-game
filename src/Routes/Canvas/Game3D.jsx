@@ -4,7 +4,7 @@ import { OrbitControls,Stars } from "@react-three/drei";
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 
 
-function Game3D({handleClick}) {
+function Game3D() {
 
   function Model({url}) {
     const obj = useLoader(OBJLoader, url);
@@ -33,7 +33,7 @@ function Plane() {
 }
 
   return (
-    <div id="Game3D"  onClick={handleClick}>
+    < >
         <OrbitControls />
         <Stars />
         <ambientLight intensity={1} />
@@ -45,7 +45,7 @@ function Plane() {
         <Box />
         <Plane />
         <Model url='src/assets/models/boombox.obj' />
-    </div>
+    </>
   );
 }
 

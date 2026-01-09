@@ -6,11 +6,11 @@ import Game3D from "./Game3D";
 function World({gameStage,handleClick}) {
 
   return (
-    <div >
-      <Canvas id="canvas">
-        {gameStage ==='play' && <Game3D handleClick={handleClick} /> }
-      </Canvas>
-    </div>
+    <>
+      <Canvas onClick={handleClick}>
+        {gameStage ==='play' && <Game3D/> }
+      </Canvas> 
+    </>
   );
 }
 

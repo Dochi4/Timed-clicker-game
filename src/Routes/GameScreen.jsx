@@ -1,16 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Canvas , useLoader } from "@react-three/fiber";
-import { OrbitControls,Stars } from "@react-three/drei";
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 import "../Css/GameScreen.css"
 
 
-function GameScreen({}) {
+function GameScreen({maxTime,time,counter}) {
   
 
   return (
-    <div id="GameScreen" >
-      <div id ="infoPanel">
+    <div className="gamescreen" >
       <h1>Game SCREEN</h1>  
       {time} <input
         type="range"
@@ -20,7 +16,6 @@ function GameScreen({}) {
         disabled
       />
       <h2>{counter}</h2>
-      </div>
     </div>
   );
 }
