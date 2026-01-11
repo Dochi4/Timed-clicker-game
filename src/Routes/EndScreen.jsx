@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 
-
-function EndScreen({handleReset,handleStart,handleUpgrade,counter,wallet,newCoins}) {
- 
-
+function EndScreen({
+  handleReset,
+  handleStart,
+  handleUpgrade,
+  counter,
+  wallet,
+  newCoins,
+}) {
   return (
-    <div >
+    <div>
       <h1>End SCREEN</h1>
       <h2>You Swung {counter} Times </h2>
       <h2>You earned {newCoins} Coins </h2>

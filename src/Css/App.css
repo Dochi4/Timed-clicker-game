@@ -1,14 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-html,body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
-:root   {
+:root {
   /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
-  font-family: 'Press Start 2P', monospace;
-  
+  font-family: "Press Start 2P", monospace;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #222020;
@@ -18,10 +18,9 @@ html,body {
   -moz-osx-font-smoothing: grayscale;
   height: 100svh;
   text-align: center;
-  
 }
 
-.App{
+.App {
   height: 100svh;
   display: flex;
   justify-content: center;
@@ -36,8 +35,8 @@ h1 {
 
 button {
   --shadow-bt-color: #f0e9da;
-  
-  font-family: 'Press Start 2P', monospace;
+
+  font-family: "Press Start 2P", monospace;
   text-transform: uppercase;
 
   padding: 10px 16px;
@@ -45,50 +44,39 @@ button {
   font-size: 1rem;
 
   color: #ffffff;
-  
+
   border: 0 solid transparent;
-  
-  box-shadow:
-    4px 0 0 var(--shadow-bt-color), 
-   -4px 0 0 var(--shadow-bt-color), 
-    0 4px 0 var(--shadow-bt-color),
-    0 -4px 0 var(--shadow-bt-color);
+
+  box-shadow: 4px 0 0 var(--shadow-bt-color), -4px 0 0 var(--shadow-bt-color),
+    0 4px 0 var(--shadow-bt-color), 0 -4px 0 var(--shadow-bt-color);
 
   cursor: pointer;
 }
 
-
 button:hover {
   transform: translate(-2px, -2px);
-  box-shadow:
-    4px 0 0 var(--shadow-bt-color), 
-   -4px 0 0 var(--shadow-bt-color), 
-    0 4px 0 var(--shadow-bt-color),
-    0 -4px 0 var(--shadow-bt-color);
+  box-shadow: 4px 0 0 var(--shadow-bt-color), -4px 0 0 var(--shadow-bt-color),
+    0 4px 0 var(--shadow-bt-color), 0 -4px 0 var(--shadow-bt-color);
 }
 
 button:active {
   transform: translate(2px, 2px);
-  box-shadow:
-    4px 0 0 var(--shadow-bt-color), 
-   -4px 0 0 var(--shadow-bt-color), 
-    0 4px 0 var(--shadow-bt-color),
-    0 -4px 0 var(--shadow-bt-color);
+  box-shadow: 4px 0 0 var(--shadow-bt-color), -4px 0 0 var(--shadow-bt-color),
+    0 4px 0 var(--shadow-bt-color), 0 -4px 0 var(--shadow-bt-color);
 }
 
-
-.canvas, .ui-panel{
-    position: absolute;
+.canvas,
+.ui-panel {
+  position: absolute;
 }
 
-
-.canvas{
-    height: 100svh;
-    width: 100svw;
-    display: grid;
-    z-index: 1;
+.canvas {
+  height: 100svh;
+  width: 100svw;
+  display: grid;
+  z-index: 1;
 }
 
-.ui-panel{
-    z-index: 2;
+.ui-panel {
+  z-index: 2;
 }

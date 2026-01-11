@@ -1,15 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 
-
-function StartScreen({handleStart, handleUpgrade}){
+function StartScreen({ handleStart, handleUpgrade }) {
   // useEffect(() => {
-    
+
   // }, []);
 
-
-
   return (
-    <div >
+    <div>
       <h1>START SCREEN</h1>
       <button onClick={handleStart}> Start Game </button>
       <button onClick={handleUpgrade}> Upgrade </button>
