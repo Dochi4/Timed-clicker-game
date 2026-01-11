@@ -13,7 +13,7 @@ import World from "./Routes/Canvas/World";
 function App() {
   const [counter, setCounter] = useState(0);
   const [gameStage, setGameStage] = useState("start");
-  const [maxTime,setMaxTime] = useState(100)
+  const [maxTime,setMaxTime] = useState(10)
   const [time, setTime] = useState(maxTime);
 
   const [wallet,setWallet] = useState(0);
@@ -39,7 +39,6 @@ function App() {
     if (gameStage !=='play') return;
 
     setCounter(counter+strength)
-    setTime(maxTime)
   }
   
   const walletConvertion = ()=>{
@@ -69,7 +68,7 @@ function App() {
       case'start':
         return < StartScreen handleStart={handleStart} handleUpgrade={handleUpgrade} />
       case'play':
-        return <GameScreen handleClick ={handleClick} maxTime={maxTime}time={time} counter={counter} />
+        return <GameScreen endGame ={endGame} maxTime={maxTime}time={time} counter={counter} />
       case'end':
         return <EndScreen handleReset = {handleReset} handleStart={handleStart} handleUpgrade={handleUpgrade} counter={counter} wallet={wallet} newCoins = {Math.floor(counter/convertionRate)}/>
       case'upgrade':
@@ -80,8 +79,12 @@ function App() {
 
   return (
     <div className="App">
-    <div className='canvas'><World gameStage={gameStage} handleClick={handleClick} /></div>
-    <div className = "ui-panel">{renderStages()}</div>
+    <div className='canvas'>
+      <World gameStage={gameStage} handleClick={handleClick} />
+      </div>
+    <div className = "ui-panel">
+      {renderStages()}
+      </div>
     </div>
   );
 }
