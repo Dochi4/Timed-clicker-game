@@ -1,18 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
+import PickAxe from "./PickAxe_Clicker";
+import Ore from "./Ore_Clicker";
 
 function Game3D() {
-  function Model({ url }) {
-    const obj = useLoader(OBJLoader, url);
-    return (
-      <mesh position={[0, 1, -5]} scale={[0.1, 0.1, 0.1]} castShadow>
-        <primitive object={obj} />
-      </mesh>
-    );
-  }
-
   function Box() {
     return (
       <mesh position={[0, 2, 0]} castShadow>
@@ -39,7 +31,8 @@ function Game3D() {
 
       <Box />
       <Plane />
-      <Model url="src/assets/models/boombox.obj" />
+      <PickAxe />
+      <Ore />
     </>
   );
 }

@@ -11,7 +11,7 @@ import World from "./Routes/Canvas/World";
 function App() {
   const [gameStage, setGameStage] = useState("start"); // start, play, end, upgrade
   const [counter, setCounter] = useState(0); // points
-  const [maxTime, setMaxTime] = useState(10); //max amount of seconds per game
+  const [maxTime, setMaxTime] = useState(100); //max amount of seconds per game
   const [time, setTime] = useState(maxTime); // seconds
   const [wallet, setWallet] = useState(60); // coins for upgrades
   const [strength, setStrength] = useState(1); // points per click
