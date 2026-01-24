@@ -23,6 +23,11 @@ button {
   font-size: 1rem;
 }
 
+button:disabled {
+  background-color: rgb(66, 66, 66);
+  color: rgb(167, 218, 148);
+}
+
 p {
   padding: 10px;
   margin: 5px;

@@ -1,8 +1,10 @@
-import React from "react";
+import { React, useContext } from "react";
 import { Canvas } from "@react-three/fiber";
 import Game3D from "./Game3D";
+import { GameContext } from "../../GameContext";
 
-function World({ gameStage, handleClick }) {
+function World() {
+  const { gameStage, handleClick } = useContext(GameContext);
   return (
     <>
       <Canvas onClick={handleClick}>

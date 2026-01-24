@@ -4,7 +4,7 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 
 function Ore() {
-  function Ore() {
+  function OreRender() {
     const obj = useLoader(OBJLoader, "src/assets/models/Ore_clicker.obj");
     let size = { x: 0.05, y: 0.05, z: 0.05 };
     return (
@@ -14,7 +14,7 @@ function Ore() {
     );
   }
 
-  return <Ore />;
+  return <OreRender />;
 }
 
 export default Ore;

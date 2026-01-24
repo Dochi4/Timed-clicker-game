@@ -1,24 +1,29 @@
-import { useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { useEffect, useState, useContext } from "react";
 import "./Css/App.css";
 import GameScreen from "./Routes/GameScreen";
 import StartScreen from "./Routes/StartScreen";
 import EndScreen from "./Routes/EndScreen";
 import UpgradeBoard from "./Routes/UpgradeBoard";
 import World from "./Routes/Canvas/World";
+import { GameContext } from "./GameContext";
 
 function App() {
-  const [gameStage, setGameStage] = useState("start"); // start, play, end, upgrade
-  const [counter, setCounter] = useState(0); // points
-  const [maxTime, setMaxTime] = useState(100); //max amount of seconds per game
+  const {
+    counter,
+    setCounter,
+    strength,
+    setStrength,
+    gameStage,
+    setGameStage,
+  } = useContext(GameContext);
+
+  const [maxTime, setMaxTime] = useState(10); //max amount of seconds per game
   const [time, setTime] = useState(maxTime); // seconds
-  const [wallet, setWallet] = useState(60); // coins for upgrades
-  const [strength, setStrength] = useState(1); // points per click
+  const [wallet, setWallet] = useState(600); // coins for upgrades
   const [convertionRate, setConvertionRate] = useState(0.1); // points to coins
 
   useEffect(() => {
-    if (gameStage !== "play") return; // only runs when playing
+    if (gameStage !== "play") return;
     const timer = setInterval(() => {
       setTime((t) => {
         if (t === 0) {
@@ -31,11 +36,6 @@ function App() {
 
     return () => clearInterval(timer);
   }, [time, gameStage]);
-
-  const handleClick = () => {
-    if (gameStage !== "play") return;
-    setCounter(counter + strength);
-  };
 
   const walletConvertion = () => {
     const newCoins = Math.floor(counter * convertionRate);
@@ -108,7 +108,7 @@ function App() {
   return (
     <div className="App">
       <div className="canvas">
-        <World gameStage={gameStage} handleClick={handleClick} />
+        <World />
       </div>
       <div className="ui-panel">{renderStages()}</div>
     </div>

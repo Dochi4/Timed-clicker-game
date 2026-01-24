@@ -1,18 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { OrbitControls, Stars } from "@react-three/drei";
+import { PerspectiveCamera, OrbitControls, Stars } from "@react-three/drei";
 import PickAxe from "./PickAxe_Clicker";
 import Ore from "./Ore_Clicker";
 
 function Game3D() {
-  function Box() {
-    return (
-      <mesh position={[0, 2, 0]} castShadow>
-        <boxGeometry attach="geometry" />
-        <meshStandardMaterial attach="material" color="green" />
-      </mesh>
-    );
-  }
   function Plane() {
     return (
       <mesh position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
@@ -24,15 +16,20 @@ function Game3D() {
 
   return (
     <>
-      <OrbitControls />
+      <PerspectiveCamera
+        makeDefault
+        position={[-8, 2, 9]} // camera position
+        fov={67}
+        onUpdate={(self) => self.lookAt(0.5, 4, 3)}
+      />
       <Stars />
-      <ambientLight intensity={1} />
-      <spotLight position={[10, 15, 10]} angle={0.3} />
+      <ambientLight intensity={0.3} />
+      <directionalLight position={[-7, 10, 5]} intensity={1} castShadow />
+      <spotLight position={[-10, 15, 10]} angle={0.4} intensity={0.7} />
 
-      <Box />
-      <Plane />
       <PickAxe />
       <Ore />
+      <Plane />
     </>
   );
 }
