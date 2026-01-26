@@ -12,29 +12,25 @@ function UpgradeBoard({
   maxTime,
   convertionRate,
   setConvertionRate,
+  upgrade,
+  setUpgrade,
 }) {
   const [error, setError] = useState(null);
-  const [upgrade, setUpgrade] = useState({
-    strength: { cost: 10, max: 10 },
-    maxTime: { cost: 20, max: 60 },
-    convertionRate: { cost: 30, max: 2 },
-  });
 
   const handleUpgrade = (type) => {
     if (wallet >= upgrade[type].cost) {
       setWallet(wallet - upgrade[type].cost);
-      const u = upgrade;
 
       if (type === "strength") {
         if (strength >= upgrade.strength.max) return;
         setStrength(strength + 1);
-        setUpgrade((prev) => ({
-          ...prev,
+        setUpgrade({
+          ...upgrade,
           strength: {
-            ...prev.strength,
-            cost: prev.strength.cost + 10,
+            ...upgrade.strength,
+            cost: upgrade.strength.cost + 10,
           },
-        }));
+        });
         setError(null);
       }
       if (type === "maxTime") {

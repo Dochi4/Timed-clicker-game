@@ -21,6 +21,11 @@ function App() {
   const [time, setTime] = useState(maxTime); // seconds
   const [wallet, setWallet] = useState(600); // coins for upgrades
   const [convertionRate, setConvertionRate] = useState(0.1); // points to coins
+  const [upgrade, setUpgrade] = useState({
+    strength: { cost: 10, max: 10 },
+    maxTime: { cost: 20, max: 60 },
+    convertionRate: { cost: 30, max: 2 },
+  }); // upgrades state initial cost and max values
 
   useEffect(() => {
     if (gameStage !== "play") return;
@@ -100,6 +105,8 @@ function App() {
             maxTime={maxTime}
             convertionRate={convertionRate}
             setConvertionRate={setConvertionRate}
+            upgrade={upgrade}
+            setUpgrade={setUpgrade}
           />
         );
     }
