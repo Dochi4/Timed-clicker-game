@@ -2,29 +2,54 @@
   color: rgb(240, 66, 66);
 }
 
+#upgrade-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vh;
+  height: auto;
+  z-index: 1000;
+  background-color: rgb(51, 48, 48);
+  opacity: 0.8;
+  box-shadow:
+    10px 0 0 var(--shadow-bt-color),
+    -10px 0 0 var(--shadow-bt-color),
+    0 10px 0 var(--shadow-bt-color),
+    0 -10px 0 var(--shadow-bt-color);
+}
+
 #stats-board {
-  border: 8px solid;
+  box-shadow:
+    6px 0 0 var(--shadow-bt-color),
+    -6px 0 0 var(--shadow-bt-color),
+    0 6px 0 var(--shadow-bt-color),
+    0 -6px 0 var(--shadow-bt-color);
   padding: 10px;
-  margin-bottom: 2em;
+  margin: 20px;
 }
 
 #stats-cell {
   display: flex;
-  border: 4px solid;
-
-  margin: 10px;
+  box-shadow:
+    5px 0 0 var(--shadow-bt-color),
+    -5px 0 0 var(--shadow-bt-color),
+    0 5px 0 var(--shadow-bt-color),
+    0 -5px 0 var(--shadow-bt-color);
+  margin: 20px;
+  padding: 5px;
   align-items: center;
-  justify-content: center;
+  justify-content: right;
   gap: 20px;
 }
 
 button {
   padding: 10px;
+  margin: 10px;
   font-size: 1rem;
 }
 
 button:disabled {
-  background-color: rgb(66, 66, 66);
+  background-color: rgb(68, 60, 60);
   color: rgb(167, 218, 148);
 }
 

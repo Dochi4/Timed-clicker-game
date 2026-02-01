@@ -27,7 +27,7 @@ function PickAxe() {
 
   const obj = useLoader(OBJLoader, "src/assets/models/PickAxe_clicker.obj");
 
-  let size = { x: 0.03, y: 0.03, z: 0.03 };
+  let size = { x: 1, y: 1, z: 1 };
 
   return (
     <mesh

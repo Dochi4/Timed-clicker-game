@@ -65,11 +65,11 @@ function UpgradeBoard({
   }
 
   return (
-    <div>
-      <h1>Upgrade Screen</h1>
+    <div id="upgrade-board">
+      <h1>Upgrade Shop</h1>
+      <h2>Wallet: {wallet} Coins</h2>
       <div id="stats-board">
-        <h2>Current Stats</h2>
-        <h3>Wallet: {wallet} Coins</h3>
+        <h3>Upgrades</h3>
 
         <div id="stats-cell">
           <p>Strength: {strength}</p>
@@ -112,9 +112,10 @@ function UpgradeBoard({
         </div>
         {error && <div className="error">{error}</div>}
       </div>
-
-      <button onClick={handleStart}> Start Game </button>
-      <button onClick={handleReset}>Return to Start Screen</button>
+      <div className="button-container">
+        <button onClick={handleStart}> Start Game </button>
+        <button onClick={handleReset}>Return to Start Screen</button>
+      </div>
     </div>
   );
 }

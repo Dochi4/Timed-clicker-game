@@ -1,44 +1,59 @@
-import React, { useState, useRef, useContext, useEffect } from "react";
-import { useFrame } from "@react-three/fiber";
+import React, { useRef } from "react";
 import { PerspectiveCamera, Stars } from "@react-three/drei";
+import TriggerAnimations from "./TriggerAnimations";
 import PickAxe from "./PickAxe_Clicker";
 import Ore from "./Ore_Clicker";
-import { GameContext } from "../../GameContext";
-import usePrevious from "../../hooks/usePrevious";
-import TriggerAnimations from "./TriggerAnimations";
+
+import Test_Land from "./Test_Land";
+import Cave_Test from "./Cave_Test";
 
 function Game3D() {
   const camera = useRef();
 
-  function Plane() {
-    return (
-      <mesh position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <planeGeometry attach="geometry" args={[100, 100]} />
-        <meshStandardMaterial color="pink" />
-      </mesh>
-    );
-  }
-
   return (
     <>
-      {/* Camera */}
+      {/* Camera - UNTOUCHED as requested */}
       <PerspectiveCamera
         makeDefault
         ref={camera}
-        position={[-8, 2, 9]} // camera position
+        position={[-8, 2, 9]}
         fov={67}
         onUpdate={(self) => self.lookAt(0.5, 4, 3)}
       />
+
       <TriggerAnimations cameraRef={camera} />
-      {/* Lighting  */}
-      <ambientLight intensity={0.3} />
-      <directionalLight position={[-7, 10, 5]} intensity={1} castShadow />
-      <spotLight position={[-10, 15, 10]} angle={0.4} intensity={0.7} />
-      {/* 3D Objects */}
-      <Stars />
+
+      {/* --- NEW LIGHTING SETUP --- */}
+
+      <ambientLight intensity={0.15} />
+
+      {/* 2. Key Point Light: Positioned near the Ore/Action area */}
+      {/* Think of this as a lantern sitting near the player */}
+      <pointLight
+        position={[0, 5, 5]}
+        intensity={15}
+        distance={20}
+        decay={2}
+        castShadow
+      />
+
+      {/* 3. Rim Light: Hits the edges of your models to make them pop from the dark walls */}
+      <spotLight
+        position={[-10, 10, -5]}
+        angle={0.3}
+        penumbra={1}
+        intensity={5}
+        color="#4ca6ff" // Subtle blue "cave mist" tint
+      />
+
+      {/* 4. Fill Light: Soft light from the camera direction so the front isn't too dark */}
+      <directionalLight position={[-8, 2, 9]} intensity={0.4} />
+
+      {/* --- 3D Objects --- */}
       <PickAxe />
       <Ore />
-      <Plane />
+      <Test_Land />
+      <Cave_Test />
     </>
   );
 }

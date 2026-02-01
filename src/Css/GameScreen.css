@@ -1,3 +1,88 @@
 .gamescreen {
-  margin-top: -50vh;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100vh;
+  z-index: 1000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgb(88, 83, 83);
+  opacity: 0.8;
+  box-shadow:
+    10px 0 0 var(--shadow-bt-color),
+    -10px 0 0 var(--shadow-bt-color),
+    0 10px 0 var(--shadow-bt-color),
+    0 -10px 0 var(--shadow-bt-color);
+}
+
+#title {
+  font-size: 2.5rem;
+  margin-bottom: 4px;
+}
+
+#subtitle {
+  font-size: 1.1rem;
+}
+
+#time-bar-button-container {
+  display: flex;
+  flex-direction: row; /* ← KEY CHANGE */
+  align-items: center;
+  justify-content: center;
+  gap: 16px; /* spacing between bar & button */
+  width: 100%;
+}
+
+#time-bar-container {
+  position: relative;
+  flex-shrink: 1;
+  width: 100%;
+  height: 3vh;
+  background-color: #333;
+  border-radius: 0px;
+  margin: 10px;
+  box-shadow:
+    4px 0 0 var(--shadow-bt-color),
+    -4px 0 0 var(--shadow-bt-color),
+    0 4px 0 var(--shadow-bt-color),
+    0 -4px 0 var(--shadow-bt-color);
+}
+
+#time-bar-fill {
+  height: 100%;
+  width: var(--precentage, 70%);
+  background-color: #4caf50;
+  transition: width 0.1s linear;
+  border-radius: inherit;
+}
+
+#time-bar-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+}
+
+#end-game-button {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 10px;
+  cursor: pointer;
+  color: rgb(231, 50, 50);
+  background-color: rgb(71, 68, 68);
+}
+
+#counter-label {
+  font-size: 1.5rem;
+  margin-top: 20px;
 }
