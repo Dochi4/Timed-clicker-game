@@ -12,7 +12,7 @@ function Game3D() {
 
   return (
     <>
-      {/* Camera - UNTOUCHED as requested */}
+      {/* Camera*/}
       <PerspectiveCamera
         makeDefault
         ref={camera}
@@ -23,7 +23,7 @@ function Game3D() {
 
       <TriggerAnimations cameraRef={camera} />
 
-      {/* --- NEW LIGHTING SETUP --- */}
+      {/*NEW LIGHTING SETUP */}
 
       <ambientLight intensity={0.15} />
 
@@ -49,7 +49,7 @@ function Game3D() {
       {/* 4. Fill Light: Soft light from the camera direction so the front isn't too dark */}
       <directionalLight position={[-8, 2, 9]} intensity={0.4} />
 
-      {/* --- 3D Objects --- */}
+      {/* 3D Objects */}
       <PickAxe />
       <Ore />
       <Test_Land />
