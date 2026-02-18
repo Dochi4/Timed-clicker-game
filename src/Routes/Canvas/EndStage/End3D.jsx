@@ -1,29 +1,39 @@
 import React, { useRef } from "react";
-import { PerspectiveCamera, Stars } from "@react-three/drei";
-import TriggerAnimations from "./TriggerAnimations";
-import PickAxe from "./PickAxe_Clicker";
-import Ore from "./Ore_Clicker";
+import { OrbitControls, PerspectiveCamera, Stars } from "@react-three/drei";
+import { useThree } from "@react-three/fiber";
+import * as THREE from "three";
 
-import Test_Land from "./Test_Land";
-import Cave_Test from "./Cave_Test";
-
-function Game3D() {
+function End3D() {
   const camera = useRef();
+  const { scene } = useThree();
+  // scene.background = new THREE.Color("#e66c1a");
 
+  function Plane() {
+    return (
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+        <planeGeometry attach="geometry" args={[10, 10]} />
+        <meshStandardMaterial
+          attach="material"
+          color="#031924"
+          side={THREE.DoubleSide}
+        />
+      </mesh>
+    );
+  }
   return (
     <>
       {/* Camera*/}
-      <PerspectiveCamera
+      {/* <PerspectiveCamera
         makeDefault
         ref={camera}
         position={[-8, 2, 9]}
         fov={67}
         onUpdate={(self) => self.lookAt(0.5, 4, 3)}
-      />
+      /> */}
 
-      <TriggerAnimations cameraRef={camera} />
+      <OrbitControls />
 
-      {/*NEW LIGHTING SETUP */}
+      {/*Lighting Setup */}
 
       <ambientLight intensity={0.15} />
 
@@ -43,19 +53,17 @@ function Game3D() {
         angle={0.3}
         penumbra={1}
         intensity={5}
-        color="#4ca6ff" // Subtle blue "cave mist" tint
+        color="#ff944c" // Subtle blue "cave mist" tint
       />
 
       {/* 4. Fill Light: Soft light from the camera direction so the front isn't too dark */}
       <directionalLight position={[-8, 2, 9]} intensity={0.4} />
 
       {/* 3D Objects */}
-      <PickAxe />
-      <Ore />
-      <Test_Land />
-      <Cave_Test />
+      <Stars />
+      <Plane />
     </>
   );
 }
 
-export default Game3D;
+export default End3D;

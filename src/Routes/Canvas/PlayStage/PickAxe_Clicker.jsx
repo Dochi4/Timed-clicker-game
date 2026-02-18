@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { useLoader, useFrame } from "@react-three/fiber";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
-import { GameContext } from "../../GameContext";
+import { GameContext } from "../../../GameContext";
 
 function PickAxe() {
   const { counter } = useContext(GameContext);
@@ -10,17 +10,16 @@ function PickAxe() {
   const modelRef = useRef();
 
   useEffect(() => {
-    targetRotation.current = -2; // swing down
+    targetRotation.current = -2;
     const timeout = setTimeout(() => {
-      targetRotation.current = 0.9; // swing back up
-    }, 100); // hold swing down for 100ms
-
+      targetRotation.current = 1;
+    }, 100);
     return () => clearTimeout(timeout);
   }, [counter]);
 
   useFrame(() => {
     if (!modelRef.current) return;
-    // Interpolate current rotation toward target rotation
+
     modelRef.current.rotation.x +=
       (targetRotation.current - modelRef.current.rotation.x) * 0.15;
   });

@@ -1,0 +1,23 @@
+#endscreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vh;
+  height: auto;
+  z-index: 1000;
+  background-color: rgb(51, 48, 48);
+  opacity: 0.9;
+  box-shadow:
+    10px 0 0 var(--shadow-bt-color),
+    -10px 0 0 var(--shadow-bt-color),
+    0 10px 0 var(--shadow-bt-color),
+    0 -10px 0 var(--shadow-bt-color);
+}
+
+h1 {
+  padding: 10px;
+  margin-bottom: 5px;
+}
+p {
+  font-size: 20px;
+}

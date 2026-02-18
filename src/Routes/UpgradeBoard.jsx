@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../Css/Upgrade3D.css";
+import "../Css/UpgradeScreen.css";
 
 function UpgradeBoard({
   handleReset,
@@ -69,7 +69,7 @@ function UpgradeBoard({
       <h1>Upgrade Shop</h1>
       <h2>Wallet: {wallet} Coins</h2>
       <div id="stats-board">
-        <h3>Upgrades</h3>
+        <h2>Upgrades</h2>
 
         <div id="stats-cell">
           <p>Strength: {strength}</p>

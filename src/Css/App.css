@@ -10,7 +10,6 @@ body {
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #222020;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -41,7 +40,7 @@ button {
   margin: 1em;
   font-size: 1rem;
   color: #ffffff;
-  border: 0 solid transparent;
+  border: 0 solid;
   box-shadow:
     4px 0 0 var(--shadow-bt-color),
     -4px 0 0 var(--shadow-bt-color),
@@ -93,4 +92,5 @@ button:active {
   gap: 10px;
   width: 100%;
   margin: 10px;
+  margin-bottom: 20px;
 }

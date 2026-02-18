@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import "../Css/EndScreen.css";
 
 function EndScreen({
   handleReset,
@@ -9,14 +10,25 @@ function EndScreen({
   newCoins,
 }) {
   return (
-    <div>
-      <h1>End SCREEN</h1>
-      <h2>You Swung {counter} Times </h2>
-      <h2>You earned {newCoins} Coins </h2>
-      <h2>You current wallet is {wallet} Coins</h2>
-      <button onClick={handleStart}>Play Again</button>
-      <button onClick={handleReset}>Return to Start Screen</button>
-      <button onClick={handleUpgrade}>Upgrade</button>
+    <div id="endscreen">
+      <h1>End Of Day</h1>
+      <div id="stats-board">
+        <h2> Today's Stats</h2>
+        <div id="stats-cell">
+          <p>You Swung {counter} Times </p>
+        </div>
+        <div id="stats-cell">
+          <p>You Earned {newCoins} Coins </p>
+        </div>
+        <div id="stats-cell">
+          <p>You Current Wallet is {wallet} Coins</p>
+        </div>
+      </div>
+      <div className="button-container ">
+        <button onClick={handleStart}>Play Again</button>
+        <button onClick={handleReset}>Return to Start Screen</button>
+        <button onClick={handleUpgrade}>Upgrade</button>
+      </div>
     </div>
   );
 }

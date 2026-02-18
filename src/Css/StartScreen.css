@@ -5,17 +5,19 @@
 #start-screen {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 50vh;
-  height: 17vh;
-  z-index: 1000;
   background-color: rgb(51, 48, 48);
-  opacity: 0.8;
+  opacity: 0.9;
   box-shadow:
     10px 0 0 var(--shadow-bt-color),
     -10px 0 0 var(--shadow-bt-color),
     0 10px 0 var(--shadow-bt-color),
     0 -10px 0 var(--shadow-bt-color);
+}
+
+#Start3D_BC {
+  background-color: rgb(126, 31, 129);
 }
 
 #start-title {

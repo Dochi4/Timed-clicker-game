@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { GameContext } from "../../GameContext";
-import usePrevious from "../../hooks/usePrevious";
+import { GameContext } from "../../../GameContext";
+import usePrevious from "../../../hooks/usePrevious";
 
 function TriggerAnimations({ cameraRef }) {
   const [shake, setShake] = useState(false); // State to control camera shake

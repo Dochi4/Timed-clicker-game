@@ -6,11 +6,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80vh;
+  width: 90vh;
   height: auto;
   z-index: 1000;
   background-color: rgb(51, 48, 48);
-  opacity: 0.8;
+  opacity: 0.9;
   box-shadow:
     10px 0 0 var(--shadow-bt-color),
     -10px 0 0 var(--shadow-bt-color),
@@ -38,7 +38,7 @@
   margin: 20px;
   padding: 5px;
   align-items: center;
-  justify-content: right;
+  justify-content: center;
   gap: 20px;
 }
 

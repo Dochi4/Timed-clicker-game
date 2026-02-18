@@ -13,7 +13,7 @@ function GameScreen({ maxTime, time, counter, endGame }) {
       <div id="time-bar-button-container">
         <div id="time-bar-container">
           <div id="time-bar-fill" />
-          <div id="time-bar-label">Time Left: {`${time} seconds`}</div>
+          <div id="time-bar-label">{`${time} seconds`}</div>
         </div>
         <button id="end-game-button" onClick={endGame}>
           End Early
