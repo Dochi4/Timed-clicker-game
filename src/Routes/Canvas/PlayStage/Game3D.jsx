@@ -43,7 +43,7 @@ function Game3D() {
         angle={0.3}
         penumbra={1}
         intensity={5}
-        color="#4ca6ff" // Subtle blue "cave mist" tint
+        color="#19436e" // Subtle blue "cave mist" tint
       />
 
       {/* 4. Fill Light: Soft light from the camera direction so the front isn't too dark */}

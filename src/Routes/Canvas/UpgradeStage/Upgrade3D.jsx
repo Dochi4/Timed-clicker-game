@@ -23,15 +23,13 @@ function Upgrade3D() {
   return (
     <>
       {/* Camera*/}
-      {/* <PerspectiveCamera
+      <PerspectiveCamera
         makeDefault
         ref={camera}
         position={[-8, 2, 9]}
         fov={67}
         onUpdate={(self) => self.lookAt(0.5, 4, 3)}
-      /> */}
-
-      <OrbitControls />
+      />
 
       {/*Lighting Setup */}
 
@@ -61,7 +59,6 @@ function Upgrade3D() {
 
       {/* 3D Objects */}
       <Stars />
-      <Plane />
     </>
   );
 }

@@ -16,10 +16,6 @@
     0 -10px 0 var(--shadow-bt-color);
 }
 
-#Start3D_BC {
-  background-color: rgb(126, 31, 129);
-}
-
 #start-title {
   font-size: 2.5rem;
   margin-bottom: 4px;

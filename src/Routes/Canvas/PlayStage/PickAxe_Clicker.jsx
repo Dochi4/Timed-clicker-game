@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import { useLoader, useFrame } from "@react-three/fiber";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import { GameContext } from "../../../GameContext";
+import { useTexture } from "@react-three/drei";
 
 function PickAxe() {
   const { counter } = useContext(GameContext);
@@ -9,6 +10,20 @@ function PickAxe() {
 
   const modelRef = useRef();
 
+  const obj = useLoader(OBJLoader, "src/assets/models/PickAxe_clicker.obj");
+  const texture = useTexture("src/assets/textures/PickAxe/PickAxe_BC.png");
+
+  // Texture loading and application
+  useEffect(() => {
+    obj.traverse((child) => {
+      if (child.isMesh) {
+        child.material.map = texture;
+        child.material.needsUpdate = true;
+      }
+    });
+  }, [obj, texture]);
+
+  // Animate the pickaxe rotation on click
   useEffect(() => {
     targetRotation.current = -2;
     const timeout = setTimeout(() => {
@@ -23,8 +38,6 @@ function PickAxe() {
     modelRef.current.rotation.x +=
       (targetRotation.current - modelRef.current.rotation.x) * 0.15;
   });
-
-  const obj = useLoader(OBJLoader, "src/assets/models/PickAxe_clicker.obj");
 
   let size = { x: 1, y: 1, z: 1 };
 

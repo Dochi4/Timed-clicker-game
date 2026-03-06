@@ -11,7 +11,7 @@ function World() {
   const backgroundColor = {
     start: "linear-gradient(50deg, #166cee 0%, #46b3f1 35%, #fde9c3 100%)",
     play: "#30a3dd",
-    upgrade: "#0e4d06",
+    upgrade: "linear-gradient(190deg, #010d31 0%, #031601 100%)",
     end: "linear-gradient(190deg, #010d31 0%, #a52c07 35%, #ffd000 100%)",
   };
 
@@ -22,9 +22,9 @@ function World() {
         style={{ background: backgroundColor[gameStage] }}
       >
         {gameStage === "play" && <Game3D />}
-        {gameStage === "start" && <Start3D />}
+        {gameStage === "start" && <Start3D key="start-stage" />}
         {gameStage === "upgrade" && <Upgrade3D />}
-        {gameStage === "end" && <End3D />}
+        {gameStage === "end" && <End3D key="end-stage" />}
       </Canvas>
     </>
   );
