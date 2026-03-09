@@ -18,7 +18,7 @@
 
 #start-title {
   font-size: 2.5rem;
-  margin-bottom: 4px;
+  margin: 4px;
 }
 #start-subtitle {
   font-size: 1.1rem;
@@ -30,11 +30,14 @@ a {
   text-transform: uppercase;
 
   padding: 10px 16px;
-  margin: 1em;
+  margin-top: 1.3em;
+  margin-bottom: 1.3em;
+  margin-left: 0.7em;
+  margin-right: 0.7em;
   font-size: 1rem;
 
   border: 0 solid transparent;
-  background-color: #383333;
+  background-color: #3f3c3c;
   box-shadow:
     4px 0 0 var(--shadow-bt-color),
     -4px 0 0 var(--shadow-bt-color),
@@ -42,6 +45,7 @@ a {
     0 -4px 0 var(--shadow-bt-color);
 
   cursor: pointer;
+  text-decoration: none;
 }
 
 a:hover {
@@ -60,4 +64,18 @@ a:active {
     -4px 0 0 var(--shadow-bt-color),
     0 4px 0 var(--shadow-bt-color),
     0 -4px 0 var(--shadow-bt-color);
+}
+
+#tiny-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 5px;
+  margin-bottom: 3px;
+}
+
+.tiny-button {
+  font-size: 0.8rem;
 }

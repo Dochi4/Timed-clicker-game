@@ -4,8 +4,12 @@ import GameScreen from "./Routes/GameScreen";
 import StartScreen from "./Routes/StartScreen";
 import EndScreen from "./Routes/EndScreen";
 import UpgradeBoard from "./Routes/UpgradeBoard";
+import Credit from "./Routes/Credit";
 import World from "./Routes/Canvas/World";
 import { GameContext } from "./GameContext";
+import PlayMusic from "./Routes/PlayMusic";
+import buttonSound from "./assets/sounds/839832__tommylistens__ui-click.wav";
+import * as Tone from "tone";
 
 function App() {
   const {
@@ -15,6 +19,7 @@ function App() {
     setStrength,
     gameStage,
     setGameStage,
+    soundEffectsOn,
   } = useContext(GameContext);
 
   const [maxTime, setMaxTime] = useState(10); //max amount of seconds per game
@@ -27,6 +32,23 @@ function App() {
     convertionRate: { cost: 30, max: 2 },
   }); // upgrades state initial cost and max values
 
+  // Listen Globally for Button add sound
+  useEffect(() => {
+    const clickAudio = new Audio(buttonSound);
+
+    const handleGlobalClick = (event) => {
+      if (event.target.closest("button") && soundEffectsOn) {
+        clickAudio.currentTime = 0;
+        clickAudio.play().catch(() => {});
+      }
+    };
+
+    window.addEventListener("click", handleGlobalClick);
+
+    return () => window.removeEventListener("click", handleGlobalClick);
+  }, [soundEffectsOn]);
+
+  // Play Stage Count Down Timer
   useEffect(() => {
     if (gameStage !== "play") return;
     const timer = setInterval(() => {
@@ -62,6 +84,9 @@ function App() {
     walletConvertion();
     setGameStage("end");
   };
+  const handleCredit = () => {
+    setGameStage("credit");
+  };
 
   function renderStages() {
     switch (gameStage) {
@@ -70,6 +95,7 @@ function App() {
           <StartScreen
             handleStart={handleStart}
             handleUpgrade={handleUpgrade}
+            handleCredit={handleCredit}
           />
         );
       case "play":
@@ -109,15 +135,21 @@ function App() {
             setUpgrade={setUpgrade}
           />
         );
+      case "credit":
+        return <Credit handleReset={handleReset} />;
     }
   }
 
   return (
     <div className="App">
+      {/* 3D Canvas */}
       <div className="canvas">
         <World />
       </div>
+      {/* UI */}
       <div className="ui-panel">{renderStages()}</div>
+      {/* Music */}
+      <PlayMusic />
     </div>
   );
 }

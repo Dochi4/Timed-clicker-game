@@ -39,4 +39,6 @@ export default function CameraTracker() {
       </div>
     </Html>
   );
+
+  // This was used to determine the postion the camera needed to be in for the other scenes. It was removed after I got the values I needed, but I kept it in the codebase in case I need to reference it again in the future.
 }

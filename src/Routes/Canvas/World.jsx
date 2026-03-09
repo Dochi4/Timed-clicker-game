@@ -10,7 +10,7 @@ function World() {
   const { gameStage, handleClick } = useContext(GameContext);
   const backgroundColor = {
     start: "linear-gradient(50deg, #166cee 0%, #46b3f1 35%, #fde9c3 100%)",
-    play: "#30a3dd",
+    play: "#131414",
     upgrade: "linear-gradient(190deg, #010d31 0%, #031601 100%)",
     end: "linear-gradient(190deg, #010d31 0%, #a52c07 35%, #ffd000 100%)",
   };

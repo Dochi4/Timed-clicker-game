@@ -3,9 +3,11 @@ import { useLoader, useFrame } from "@react-three/fiber";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import { GameContext } from "../../../GameContext";
 import { useTexture } from "@react-three/drei";
+import { usePickaxe } from "../../../hooks/usePickaxe";
 
 function PickAxe() {
   const { counter } = useContext(GameContext);
+  const playPickaxe = usePickaxe();
   const targetRotation = useRef(0);
 
   const modelRef = useRef();
@@ -27,14 +29,15 @@ function PickAxe() {
   useEffect(() => {
     targetRotation.current = -2;
     const timeout = setTimeout(() => {
-      targetRotation.current = 1;
+      targetRotation.current = 0.5;
+      playPickaxe();
     }, 100);
+
     return () => clearTimeout(timeout);
   }, [counter]);
 
   useFrame(() => {
     if (!modelRef.current) return;
-
     modelRef.current.rotation.x +=
       (targetRotation.current - modelRef.current.rotation.x) * 0.15;
   });

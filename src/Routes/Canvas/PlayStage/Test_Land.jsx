@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useMemo, useEffect } from "react";
 import { useLoader } from "@react-three/fiber";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import * as THREE from "three";
@@ -6,24 +6,40 @@ import { useTexture } from "@react-three/drei";
 
 function Test_Land() {
   const obj = useLoader(OBJLoader, "src/assets/models/Test_Land.obj");
-
   const texture = useTexture("src/assets/textures/Land/Test_Land_BC.png");
 
-  // Texture loading and application
   useEffect(() => {
-    obj.traverse((child) => {
+    if (texture) {
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.needsUpdate = true;
+    }
+  }, [texture]);
+
+  const sceneObject = useMemo(() => {
+    const clone = obj.clone();
+    clone.traverse((child) => {
       if (child.isMesh) {
-        child.material.map = texture;
-        child.material.needsUpdate = true;
+        // FIX: High Roughness (1.0) = No white glare
+        // FIX: Low Metalness (0.0) = Not a mirror
+        child.material = new THREE.MeshStandardMaterial({
+          map: texture,
+          side: THREE.DoubleSide,
+          roughness: 1.0,
+          metalness: 0.0,
+        });
+
+        // GLITCH FIX: Shadow Bias
+        // This prevents "Shadow Acne" (the weird flickering lines)
+        child.castShadow = true;
+        child.receiveShadow = true;
+        child.material.shadowSide = THREE.BackSide;
       }
     });
+    return clone;
   }, [obj, texture]);
 
   return (
-    <mesh position={[0, 0, 0]} scale={[1, 1, 1]} castShadow>
-      <primitive object={obj} />
-      <meshStandardMaterial side={THREE.DoubleSide} />
-    </mesh>
+    <primitive object={sceneObject} position={[0, 0, 0]} scale={[1, 1, 1]} />
   );
 }
 
