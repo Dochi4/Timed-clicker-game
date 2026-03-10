@@ -5,8 +5,8 @@ import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 
 function Mountain() {
-  const obj = useLoader(OBJLoader, "src/assets/models/Mountain.obj");
-  const texture = useTexture("src/assets/textures/Mountain/Mountain_BC.png");
+  const obj = useLoader(OBJLoader, "/assets/models/Mountain.obj");
+  const texture = useTexture("/assets/textures/Mountain/Mountain_BC.png");
 
   // 1. CLONE the object so each scene gets its own unique copy
   // 2. APPLY the texture inside useMemo so it only happens once per mount

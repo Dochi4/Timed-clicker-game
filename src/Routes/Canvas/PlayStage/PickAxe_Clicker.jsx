@@ -12,8 +12,8 @@ function PickAxe() {
 
   const modelRef = useRef();
 
-  const obj = useLoader(OBJLoader, "src/assets/models/PickAxe_clicker.obj");
-  const texture = useTexture("src/assets/textures/PickAxe/PickAxe_BC.png");
+  const obj = useLoader(OBJLoader, "/assets/models/PickAxe_clicker.obj");
+  const texture = useTexture("/assets/textures/PickAxe/PickAxe_BC.png");
 
   // Texture loading and application
   useEffect(() => {

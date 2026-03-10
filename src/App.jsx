@@ -7,9 +7,10 @@ import UpgradeBoard from "./Routes/UpgradeBoard";
 import Credit from "./Routes/Credit";
 import World from "./Routes/Canvas/World";
 import { GameContext } from "./GameContext";
+// importing sounds and button click effect
 import PlayMusic from "./Routes/PlayMusic";
-import buttonSound from "./assets/sounds/839832__tommylistens__ui-click.wav";
 import * as Tone from "tone";
+const buttonSound = "/assets/sounds/839832__tommylistens__ui-click.wav";
 
 function App() {
   const {

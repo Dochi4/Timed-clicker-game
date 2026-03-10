@@ -4,7 +4,7 @@ import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import CameraTracker from "../Log_Camera_Pos";
 import Forest from "../Forest";
-import OBJModel from "../OBJModel";
+import Mountain from "../Mountain";
 
 function End3D() {
   const camera = useRef();
@@ -45,13 +45,8 @@ function End3D() {
       <directionalLight position={[-8, 2, 9]} intensity={0.2} />
 
       {/* 3D Objects */}
-      <OBJModel
-        file="src/assets/models/Mountain.obj"
-        textureFile="src/assets/textures/Mountain/Mountain_BC.png"
-        position={[0, 0, 0]}
-        scale={[1, 1, 1]}
-        castShadow
-      />
+
+      <Mountain />
       <Stars />
       <Forest />
     </>

@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { GameContext } from "../GameContext";
-import soundFile from "../assets/sounds/728757__techspiredminds__metallic-pickaxe-24.wav";
 import * as Tone from "tone";
+const soundFile =
+  "/assets/sounds/728757__techspiredminds__metallic-pickaxe-24.wav";
 
 export function usePickaxe() {
   const { soundEffectsOn } = useContext(GameContext);

@@ -4,23 +4,10 @@ import * as THREE from "three";
 import Mountain from "../Mountain";
 import Forest from "../Forest";
 import CameraTracker from "../Log_Camera_Pos";
-import OBJModel from "../OBJModel";
 
 function Start3D() {
   const camera = useRef();
 
-  function Plane() {
-    return (
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-        <planeGeometry attach="geometry" args={[10, 10]} />
-        <meshStandardMaterial
-          attach="material"
-          color="#ddeaf0"
-          side={THREE.DoubleSide}
-        />
-      </mesh>
-    );
-  }
   return (
     <>
       {/* Camera*/}

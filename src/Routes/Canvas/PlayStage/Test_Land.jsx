@@ -5,8 +5,8 @@ import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 
 function Test_Land() {
-  const obj = useLoader(OBJLoader, "src/assets/models/Test_Land.obj");
-  const texture = useTexture("src/assets/textures/Land/Test_Land_BC.png");
+  const obj = useLoader(OBJLoader, "/assets/models/Test_Land.obj");
+  const texture = useTexture("/assets/textures/Land/Test_Land_BC.png");
 
   useEffect(() => {
     if (texture) {

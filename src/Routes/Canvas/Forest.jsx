@@ -5,8 +5,8 @@ import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 
 function Forest() {
-  const obj = useLoader(OBJLoader, "src/assets/models/Forest.obj");
-  const texture = useTexture("src/assets/textures/Forest/Forest_BC.png");
+  const obj = useLoader(OBJLoader, "/assets/models/Forest.obj");
+  const texture = useTexture("/assets/textures/Forest/Forest_BC.png");
 
   // useMemo Contructed Moutain.jsx
 
