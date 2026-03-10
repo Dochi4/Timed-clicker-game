@@ -1,25 +1,11 @@
 import React, { useRef } from "react";
-import { OrbitControls, PerspectiveCamera, Stars } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
+import { PerspectiveCamera, Stars } from "@react-three/drei";
+
 import * as THREE from "three";
 
 function Upgrade3D() {
   const camera = useRef();
-  const { scene } = useThree();
-  // scene.background = new THREE.Color("#64da54");
 
-  function Plane() {
-    return (
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-        <planeGeometry attach="geometry" args={[10, 10]} />
-        <meshStandardMaterial
-          attach="material"
-          color="#ddeaf0"
-          side={THREE.DoubleSide}
-        />
-      </mesh>
-    );
-  }
   return (
     <>
       {/* Camera*/}
@@ -35,8 +21,6 @@ function Upgrade3D() {
 
       <ambientLight intensity={0.15} />
 
-      {/* 2. Key Point Light: Positioned near the Ore/Action area */}
-      {/* Think of this as a lantern sitting near the player */}
       <pointLight
         position={[0, 5, 5]}
         intensity={15}
@@ -45,16 +29,14 @@ function Upgrade3D() {
         castShadow
       />
 
-      {/* 3. Rim Light: Hits the edges of your models to make them pop from the dark walls */}
       <spotLight
         position={[-10, 10, -5]}
         angle={0.3}
         penumbra={1}
         intensity={5}
-        color="#ff944c" // Subtle blue "cave mist" tint
+        color="#ff944c"
       />
 
-      {/* 4. Fill Light: Soft light from the camera direction so the front isn't too dark */}
       <directionalLight position={[-8, 2, 9]} intensity={0.4} />
 
       {/* 3D Objects */}

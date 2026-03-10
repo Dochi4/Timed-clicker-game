@@ -25,6 +25,17 @@ function PlayMusic() {
       playerRef.current?.dispose();
     };
   }, [musicOn]);
+
+  useEffect(() => {
+    const resumeAudio = () => {
+      if (Tone.getContext().state !== "running") {
+        Tone.getContext().resume();
+      }
+    };
+
+    window.addEventListener("click", resumeAudio);
+    return () => window.removeEventListener("click", resumeAudio);
+  }, []);
   return null;
 }
 

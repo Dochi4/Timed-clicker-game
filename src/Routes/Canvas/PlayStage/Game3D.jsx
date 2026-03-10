@@ -2,9 +2,7 @@ import React, { useRef } from "react";
 import { PerspectiveCamera, Stars } from "@react-three/drei";
 import TriggerAnimations from "./TriggerAnimations";
 import PickAxe from "./PickAxe_Clicker";
-import Ore from "./Ore_Clicker";
 import Test_Land from "./Test_Land";
-import Cave_Test from "./Cave_Test";
 
 function Game3D() {
   const camera = useRef();

@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import "../Css/EndScreen.css";
+import React from "react";
+import "../Css/CreditScreen.css";
 
 function Credit({ handleReset }) {
   return (
-    <div id="endscreen">
+    <div id="creditscreen">
       <h1>Credit</h1>
       <div id="stats-board">
         <h2> Audio - Freesound.org </h2>
@@ -13,6 +13,14 @@ function Credit({ handleReset }) {
             Button Click:w UI Click by TommyListens --
             https://freesound.org/s/839832/ -- License: Creative Commons 0
           </p>
+          <a
+            href={"https://freesound.org/s/839832/"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="credit-link"
+          >
+            Link
+          </a>
         </div>
         <div id="stats-cell">
           <p>Background Music:</p>
@@ -20,6 +28,13 @@ function Credit({ handleReset }) {
             video game 6.1.wav by djgriffin -- https://freesound.org/s/172567/
             -- License: Attribution 4.0
           </p>
+          <a
+            href={"https://freesound.org/s/172567/"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Link
+          </a>
         </div>
         <div id="stats-cell">
           <p>Pickaxe Swing: </p>
@@ -27,6 +42,13 @@ function Credit({ handleReset }) {
             Metallic pickaxe 2/4 by TechspiredMinds --
             https://freesound.org/s/728757/ -- License: Attribution 4.0
           </p>
+          <a
+            href={"https://freesound.org/s/728757/"}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Link
+          </a>
         </div>
       </div>
       <div className="button-container ">

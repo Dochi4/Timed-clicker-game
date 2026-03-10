@@ -8,8 +8,8 @@ function Forest() {
   const obj = useLoader(OBJLoader, "src/assets/models/Forest.obj");
   const texture = useTexture("src/assets/textures/Forest/Forest_BC.png");
 
-  // 1. CLONE the object so each scene gets its own unique copy
-  // 2. APPLY the texture inside useMemo so it only happens once per mount
+  // useMemo Contructed Moutain.jsx
+
   const sceneObject = useMemo(() => {
     const clone = obj.clone();
     clone.traverse((child) => {

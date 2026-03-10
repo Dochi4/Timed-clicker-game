@@ -19,8 +19,6 @@ function Test_Land() {
     const clone = obj.clone();
     clone.traverse((child) => {
       if (child.isMesh) {
-        // FIX: High Roughness (1.0) = No white glare
-        // FIX: Low Metalness (0.0) = Not a mirror
         child.material = new THREE.MeshStandardMaterial({
           map: texture,
           side: THREE.DoubleSide,
@@ -28,8 +26,6 @@ function Test_Land() {
           metalness: 0.0,
         });
 
-        // GLITCH FIX: Shadow Bias
-        // This prevents "Shadow Acne" (the weird flickering lines)
         child.castShadow = true;
         child.receiveShadow = true;
         child.material.shadowSide = THREE.BackSide;
