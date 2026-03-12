@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../Css/UpgradeScreen.css";
+import "../Styles/UpgradeScreen.css";
 
 function UpgradeBoard({
   handleReset,

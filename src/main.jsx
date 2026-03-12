@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./Css/App.css";
+import "./Styles/App.css";
 import App from "./App.jsx";
 import { GameProvider } from "./GameContext.jsx";
 

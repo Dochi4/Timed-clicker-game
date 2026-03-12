@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../Css/EndScreen.css";
+import "../Styles/EndScreen.css";
 
 function EndScreen({
   handleReset,

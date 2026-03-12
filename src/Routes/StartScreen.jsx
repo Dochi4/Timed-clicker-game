@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../Css/StartScreen.css";
+import "../Styles/StartScreen.css";
 import { GameContext } from "../GameContext.jsx";
 
 function StartScreen({ handleStart, handleUpgrade, handleCredit }) {

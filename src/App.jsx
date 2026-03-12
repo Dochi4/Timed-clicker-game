@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import "./Css/App.css";
+import "./Styles/App.css";
 import GameScreen from "./Routes/GameScreen";
 import StartScreen from "./Routes/StartScreen";
 import EndScreen from "./Routes/EndScreen";

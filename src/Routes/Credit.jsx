@@ -1,5 +1,5 @@
 import React from "react";
-import "../Css/CreditScreen.css";
+import "../Styles/CreditScreen.css";
 
 function Credit({ handleReset }) {
   return (

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../Css/GameScreen.css";
+import "../Styles/GameScreen.css";
 
 function GameScreen({ maxTime, time, counter, endGame }) {
   const precentage = (time / maxTime) * 100;
