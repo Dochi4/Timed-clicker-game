@@ -25,7 +25,7 @@ function App() {
 
   const [maxTime, setMaxTime] = useState(10); //max amount of seconds per game
   const [time, setTime] = useState(maxTime); // seconds
-  const [wallet, setWallet] = useState(600); // coins for upgrades
+  const [wallet, setWallet] = useState(0); // coins for upgrades
   const [convertionRate, setConvertionRate] = useState(0.1); // points to coins
   const [upgrade, setUpgrade] = useState({
     strength: { cost: 10, max: 10 },
