@@ -15,15 +15,15 @@ function Game3D() {
         makeDefault
         ref={camera}
         position={[-8, 2, 9]}
-        fov={67}
-        onUpdate={(self) => self.lookAt(0.5, 4, 3)}
+        fov={75}
+        onUpdate={(self) => self.lookAt(0.5, 2, 3)}
       />
 
       <TriggerAnimations cameraRef={camera} />
 
       {/*Lighting Setup */}
 
-      <ambientLight intensity={0.15} />
+      <ambientLight intensity={0.4} />
 
       {/* 2. Key Point Light: Positioned near the Ore/Action area */}
 
@@ -32,7 +32,7 @@ function Game3D() {
       <pointLight
         position={[0, 5, 5]}
         intensity={15}
-        distance={20}
+        distance={40}
         decay={2}
         castShadow
       />
@@ -43,7 +43,7 @@ function Game3D() {
         position={[-10, 10, -5]}
         angle={0.3}
         penumbra={1}
-        intensity={5}
+        intensity={7}
         color="#19436e" // Subtle blue "cave mist" tint
       />
 
