@@ -142,4 +142,4 @@ This website helps users discover their next book by describing what they want t
 ## Author
 
 **Mike Panaiotti**
-_Linkedin:_ https://www.linkedin.com/in/mike-panaiotti-baa41b1a1/
+- Linkedin:_ https://www.linkedin.com/in/mike-panaiotti-baa41b1a1/
