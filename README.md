@@ -2,6 +2,8 @@
 
 **Repository:** https://github.com/Dochi4/Timed-clicker-game
 
+**URL:** http://mine-masher.s3-website-us-east-1.amazonaws.com/
+
 ---
 
 ## Description
