@@ -2,7 +2,8 @@
 
 **Repository:** https://github.com/Dochi4/Timed-clicker-game
 
-**URL:** http://mine-masher.s3-website-us-east-1.amazonaws.com/
+The app is hosted securely on AWS CloudFront:
+**CloudFront URL:** https://d1v0q2gpba0bid.cloudfront.net/
 
 ---
 
