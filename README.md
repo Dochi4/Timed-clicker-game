@@ -96,7 +96,6 @@ The app will run at: http://localhost:5173
 
 ### Future Improvements
 
-- Add sound effects
 - Add save/load progress
 - Expand the upgrade system
 - Improve lighting and visual effects
